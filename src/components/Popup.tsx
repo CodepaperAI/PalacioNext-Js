@@ -19,36 +19,36 @@ const Popup = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-2"
         >
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-charcoal/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-charcoal/80 backdrop-blur-sm"
             onClick={handleClose}
           />
 
-          {/* Popup Content - Image Only */}
+          {/* Popup Content */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -30 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-[280px] sm:max-w-xl md:max-w-2xl lg:max-w-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-full max-w-[200px] xs:max-w-[240px] sm:max-w-[320px] md:max-w-[400px]"
           >
-            {/* Close button */}
+            {/* Close button - above and to the right */}
             <button
               onClick={handleClose}
-              className="absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 z-10 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/90 shadow-lg text-charcoal/70 transition-all duration-300 hover:text-gold hover:scale-110"
+              className="absolute -top-8 right-0 z-20 text-white/80 hover:text-gold transition-colors"
               aria-label="Close popup"
             >
-              <X className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <X className="h-6 w-6" />
             </button>
 
-            {/* Image only */}
+            {/* Image */}
             <img
               src={openHouseImage}
               alt="Palacio Open House - April 3rd, 2026"
-              className="w-full h-auto rounded-lg sm:rounded-xl shadow-2xl"
+              className="w-full h-auto rounded-lg shadow-xl"
             />
           </motion.div>
         </motion.div>
