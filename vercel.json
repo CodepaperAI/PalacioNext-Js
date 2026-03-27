@@ -4,6 +4,7 @@
   "routes": [
     { "src": "/api/inquiry", "dest": "api/inquiry", "methods": ["GET", "POST", "OPTIONS"] },
     { "src": "/api/blogs", "dest": "api/blogs", "methods": ["GET"] },
+    { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
