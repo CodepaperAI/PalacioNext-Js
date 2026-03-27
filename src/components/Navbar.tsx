@@ -137,7 +137,7 @@ const Navbar = ({ solid = false }: NavbarProps) => {
           </a>
           <Link to="/contact">
             <Button variant={showSolid ? "gold" : "goldOutline"} size="sm">
-              Book Consultation
+              Request a Quote
             </Button>
           </Link>
         </div>
@@ -307,7 +307,7 @@ const Navbar = ({ solid = false }: NavbarProps) => {
 
           <Link to="/contact" className="ml-1">
             <Button variant="goldOutline" size="sm">
-              Book Consultation
+              Request a Quote
             </Button>
           </Link>
         </div>
@@ -487,7 +487,7 @@ const Navbar = ({ solid = false }: NavbarProps) => {
                 </a>
                 <Link to="/contact">
                   <Button variant="gold" className="w-full">
-                    Book Consultation
+                    Request a Quote
                   </Button>
                 </Link>
               </div>

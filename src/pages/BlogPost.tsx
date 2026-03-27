@@ -186,7 +186,7 @@ const BlogPost = () => {
         eyebrow="Planning Next?"
         title="Bring The Inspiration Into A Real Event Plan"
         description="If this article helped clarify the direction, our team can help you translate it into the right venue, menu, and guest experience."
-        buttonLabel="Book Consultation"
+        buttonLabel="Request a Quote"
         buttonTo="/contact"
       />
 

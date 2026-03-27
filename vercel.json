@@ -1,13 +1,9 @@
 {
-  "functions": {
-    "api/**/*.ts": {
-      "memory": 1024,
-      "maxDuration": 30
-    }
-  },
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "routes": [
+    { "src": "/api/inquiry", "dest": "api/inquiry", "methods": ["GET", "POST", "OPTIONS"] },
+    { "src": "/api/blogs", "dest": "api/blogs", "methods": ["GET"] },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }

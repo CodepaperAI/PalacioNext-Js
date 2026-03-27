@@ -167,7 +167,7 @@ const HeroSection = () => {
       >
         <Link to="/contact">
           <Button variant="gold" size="xl" className="w-full sm:w-auto">
-            Book Consultation
+            Request a Quote
           </Button>
         </Link>
         <Link to="/#spaces">

@@ -44,7 +44,6 @@ export const inquiryFormSchema = z.object({
   message: z
     .string()
     .trim()
-    .min(20, "Please share a few more details about your event.")
     .max(2000, "Please keep your message under 2000 characters."),
   source: z.enum(["homepage", "contact-page"]),
 });

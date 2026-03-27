@@ -249,7 +249,7 @@ const SpacePageTemplate = ({ space, relatedSpaces, seo, heroTitle }: SpacePageTe
         eyebrow="Plan With Palacio"
         title="Book a Tour or Start Your Event Conversation"
         description="See the space in person, review layout possibilities, and let our team help you choose the setting that best fits your guest count and event style."
-        buttonLabel="Book Consultation"
+        buttonLabel="Request a Quote"
         buttonTo="/contact"
       />
 
