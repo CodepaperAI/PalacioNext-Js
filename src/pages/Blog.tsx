@@ -9,6 +9,16 @@ import { fadeUpVariants } from "@/hooks/useScrollAnimation";
 import { AnimatedSection, PageHero, SectionHeading, SiteCtaSection } from "@/components/ui/design-system";
 import { resolvedBlogPosts as staticBlogPosts, type BlogPost } from "@/data/blogs";
 import { fetchBlogPosts } from "@/lib/blogs-api";
+import img1955 from "@/assets/Website Content/IMG_1955.jpg";
+import img3306 from "@/assets/Website Content/IMG_3306.jpg";
+import img3666 from "@/assets/Website Content/IMG_3666.jpg";
+import img3670 from "@/assets/Website Content/IMG_3670.jpg";
+import img2245 from "@/assets/Website Content/IMG_2245.jpg";
+import originalPhoto from "@/assets/Website Content/20221027_150416_Original.jpg";
+import palacio15 from "@/assets/Website Content/Palacio-15.jpg";
+import palacio20 from "@/assets/Website Content/Palacio-20.jpg";
+
+const VENUE_IMAGES = [img1955, img3306, img3666, img3670, img2245, originalPhoto, palacio15, palacio20];
 import { ArrowRight, Calendar, Clock3, User } from "lucide-react";
 import { format } from "date-fns";
 
@@ -16,6 +26,7 @@ import heroImg from "@/assets/Website Content/IMG_3670.jpg";
 
 const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => {
   const postLabel = post.category ?? "Article";
+  console.log("[BlogCard] Rendering post:", { id: post.id, title: post.title, image: post.image, imageAlt: post.imageAlt });
 
   return (
     <motion.article
@@ -88,18 +99,29 @@ const Blog = () => {
     queryKey: ["blog-posts"],
     queryFn: fetchBlogPosts,
   });
+  console.log("[Blog] useQuery data:", apiPosts, "isArray:", Array.isArray(apiPosts));
 
   // Combine: new API posts first, then existing static posts, sorted newest first
+  // Then reassign images by final sorted position to guarantee no duplicate adjacent images
   const allPosts = useMemo(() => {
-    return [...apiPosts, ...staticBlogPosts].sort(
+    const combined = [...apiPosts, ...staticBlogPosts].sort(
       (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
     );
+    const withImages = combined.map((post, index) => ({
+      ...post,
+      image: post.image || VENUE_IMAGES[index % VENUE_IMAGES.length],
+    }));
+    console.log("[Blog] API posts:", apiPosts.length, "Static posts:", staticBlogPosts.length, "Combined:", combined.length);
+    console.log("[Blog] All posts with images:", withImages);
+    return withImages;
   }, [apiPosts]);
 
   const totalPages = Math.max(1, Math.ceil(allPosts.length / postsPerPage));
   const paginatedPosts = useMemo(() => {
     const startIndex = (currentPage - 1) * postsPerPage;
-    return allPosts.slice(startIndex, startIndex + postsPerPage);
+    const sliced = allPosts.slice(startIndex, startIndex + postsPerPage);
+    console.log("[Blog] paginatedPosts slice:", { startIndex, endIndex: startIndex + postsPerPage, slicedLength: sliced.length, total: allPosts.length });
+    return sliced;
   }, [currentPage, allPosts]);
 
   useEffect(() => {

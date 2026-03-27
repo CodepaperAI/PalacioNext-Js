@@ -14,15 +14,17 @@ export const normalizeWordPressContent = (html: string) => {
 
     container.querySelectorAll("script, gwmw").forEach((node) => node.remove());
 
-    const firstHeading = container.querySelector("h1");
-    if (firstHeading) {
-      firstHeading.remove();
-    }
+    // Remove all inline style attributes so CSS class styles always take precedence
+    container.querySelectorAll("[style]").forEach((node) => node.removeAttribute("style"));
 
-    return container.innerHTML
+    // Also strip any inline color attributes directly from the HTML string as a safety net
+    let cleaned = container.innerHTML
+      .replace(/\bstyle="[^"]*"/gi, "")
       .replace(/\u00a0/g, " ")
       .replace(/<p>\s*<\/p>/g, "")
       .trim();
+
+    return cleaned;
   } catch {
     return html;
   }

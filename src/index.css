@@ -281,7 +281,7 @@
   }
 
   .blog-article-content {
-    color: hsl(var(--muted-foreground));
+    color: hsl(24 10% 22%) !important;
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.9;
@@ -339,7 +339,7 @@
   .blog-article-content p,
   .blog-article-content li,
   .blog-article-content dd {
-    color: hsl(var(--muted-foreground));
+    color: hsl(24 10% 22%);
     font-size: 1rem;
     line-height: 1.95;
   }
@@ -398,7 +398,7 @@
     padding: 0.95rem 1.1rem 0;
     font-size: 0.84rem;
     line-height: 1.65;
-    color: hsl(var(--text-soft));
+    color: hsl(24 10% 38%);
   }
 
   .blog-article-content blockquote {
@@ -443,7 +443,7 @@
   }
 
   .blog-article-content td {
-    color: hsl(var(--muted-foreground));
+    color: hsl(24 10% 22%);
     font-size: 0.96rem;
     line-height: 1.75;
   }

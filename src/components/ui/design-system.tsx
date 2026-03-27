@@ -32,6 +32,8 @@ export const AnimatedSection = ({
 
   return (
     <section id={id} className={cn("section-padding relative overflow-hidden", bgClass, className)}>
+      {/* Observe a tiny sentinel instead of the full section so long editorial blocks can still enter view. */}
+      <div ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px" />
       {topGradientFrom && (
         <div
           className={cn(
@@ -47,7 +49,6 @@ export const AnimatedSection = ({
       )}
       <div className="container-luxury">
         <motion.div
-          ref={ref}
           initial="hidden"
           animate={controls}
           variants={staggerContainer}

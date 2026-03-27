@@ -23,14 +23,27 @@ const BlogPost = () => {
   const { slug } = useParams();
 
   // Try fetching from API first, fall back to local data
-  const { data: apiPost } = useQuery({
+  const { data: apiPost, isLoading } = useQuery({
     queryKey: ["blog-post", slug],
     queryFn: () => fetchBlogPost(slug!),
     enabled: !!slug,
   });
 
+  // Show loading spinner while API is fetching
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-10 h-10 border-2 border-gold border-t-transparent rounded-full animate-spin" />
+          <p className="text-muted-foreground text-sm font-sans">Loading article...</p>
+        </div>
+      </div>
+    );
+  }
+
   // Use API post if found, otherwise fall back to local blogPosts
   const post = apiPost ?? resolvedBlogPosts.find((item) => item.slug === slug);
+  console.log("[BlogPost] apiPost:", apiPost, "resolved post:", post, "slug:", slug);
 
   if (!post) {
     return <NotFound />;
@@ -39,6 +52,8 @@ const BlogPost = () => {
   // For related posts, only use local blogPosts (avoid mixing API and local)
   const relatedPosts = getRelatedBlogPosts(post);
   const renderedContent = normalizeWordPressContent(post.contentHtml) || post.contentHtml;
+  console.log("[BlogPost] post.contentHtml:", post.contentHtml);
+  console.log("[BlogPost] renderedContent:", renderedContent);
   const postLabel = post.category ?? "Blog";
 
   return (
@@ -100,6 +115,7 @@ const BlogPost = () => {
               <div className="px-6 py-8 sm:px-8 md:px-10 md:py-10">
                 <article
                   className="blog-article-content"
+                  style={{ color: "hsl(24 10% 22%)" }}
                   dangerouslySetInnerHTML={{ __html: renderedContent }}
                 />
               </div>

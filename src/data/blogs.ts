@@ -19,6 +19,14 @@ const blogImages: Record<string, string> = {
   "Palacio-20.jpg": palacio20,
 };
 
+// All venue images for deterministic assignment
+const VENUE_IMAGES = [img1955, img3306, img3666, img3670, img2245, originalPhoto, palacio15, palacio20];
+
+// Deterministic per-index image — ensures no duplicates across adjacent posts
+export const getBlogImageByIndex = (index: number): string => {
+  return VENUE_IMAGES[index % VENUE_IMAGES.length];
+};
+
 // Helper function to resolve image paths to actual imported images
 export const getBlogImage = (imagePath: string): string => {
   const filename = imagePath.split("/").pop() || "";
@@ -1078,11 +1086,12 @@ export const blogPosts: BlogPost[] = [
     }
 ];
 
-// Resolve all blog post images to actual imported image URLs
-export const resolvedBlogPosts = blogPosts.map((post) => ({
+// Resolve all blog post images to actual imported image URLs using index-based assignment
+// This guarantees no duplicate images for adjacent posts in the local blog list
+export const resolvedBlogPosts = blogPosts.map((post, index) => ({
   ...post,
-  image: getBlogImage(post.image),
+  image: getBlogImageByIndex(index),
 }));
 
 export const getRelatedBlogPosts = (post: BlogPost, limit = 3): BlogPost[] =>
-  blogPosts.filter((candidate) => candidate.slug !== post.slug).slice(0, limit);
+  resolvedBlogPosts.filter((candidate) => candidate.slug !== post.slug).slice(0, limit);
