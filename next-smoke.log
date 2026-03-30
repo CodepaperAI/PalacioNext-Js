@@ -1,0 +1,27 @@
+
+> palacio-next-js@0.1.0 start
+> next start --hostname 127.0.0.1 --port 3011
+
+▲ Next.js 16.2.1
+- Local:         http://127.0.0.1:3011
+- Network:       http://127.0.0.1:3011
+✓ Ready in 171ms
+[INQUIRY] Config check: {
+  hasResendApiKey: true,
+  hasFromEmail: true,
+  toEmailsCount: 1,
+  toEmails: [ 'dsingh@updates.palacioeventcentre.com' ],
+  fromEmailPreview: 'sales@updates.palaci...',
+  resendApiKeyPreview: '***YtEQ'
+}
+[INQUIRY] Config result: Config loaded successfully
+[INQUIRY] Config check: {
+  hasResendApiKey: true,
+  hasFromEmail: true,
+  toEmailsCount: 1,
+  toEmails: [ 'dsingh@updates.palacioeventcentre.com' ],
+  fromEmailPreview: 'sales@updates.palaci...',
+  resendApiKeyPreview: '***YtEQ'
+}
+[INQUIRY] Config result: Config loaded successfully
+[INQUIRY] Resend API response: { status: 200, statusText: 'OK', ok: true }
