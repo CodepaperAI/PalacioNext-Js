@@ -340,7 +340,7 @@ interface StatCardProps {
 }
 
 export const StatCard = ({ icon, value, label }: StatCardProps) => (
-  <LuxuryCard className="group p-7 text-center md:p-8">
+  <LuxuryCard className="group p-7 text-center md:p-8 h-full">
     <IconBox size="md" className="mx-auto mb-5">
       {icon}
     </IconBox>

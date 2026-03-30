@@ -7,18 +7,18 @@ import { buildServiceSchema } from "@/lib/seo";
 
 const weddingData: EventPageData = {
   seo: {
-    title: "Wedding Venue Mississauga | Palacio Event Centre",
+    title: "Luxury Wedding Venue Mississauga | Palacio Event Centre",
     description:
-      "Luxury wedding venue in Mississauga for ceremonies, receptions, and elegant celebrations at Palacio Event Centre.",
+      "Palacio Event Centre is a luxury wedding venue Mississauga couples trust for breathtaking ceremonies, lavish receptions, and celebrations that begin the moment guests arrive.",
     schema: buildServiceSchema({
-      name: "Wedding Venue in Mississauga",
+      name: "Luxury Wedding Venue Mississauga",
       description:
         "Luxury wedding venue in Mississauga for ceremonies, receptions, and elegant celebrations at Palacio Event Centre.",
       pathname: "/weddings",
       image: weddingImg,
     }),
   },
-  title: "Wedding Venue in Mississauga",
+  title: "Luxury Wedding Venue Mississauga",
   eyebrow: "Your Dream Wedding Awaits",
   heroImage: weddingImg,
   heroAlt: "Wedding reception setup at Palacio Event Centre in Mississauga with a floral stage and reflective aisle",

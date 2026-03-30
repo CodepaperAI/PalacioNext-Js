@@ -17,11 +17,11 @@ const IbizaGrandBallroom = () => {
     <SpacePageTemplate
       space={space}
       relatedSpaces={relatedSpaces}
-      heroTitle="Grand Ballroom in Mississauga"
+      heroTitle="A Grand Ballroom Built for Mississauga's Most Memorable Events"
       seo={{
-        title: "Grand Ballroom Mississauga | Ibiza Grand Ballroom at Palacio",
+        title: "Grand Ballroom Mississauga | Palacio Event Centre",
         description:
-          "Ibiza Grand Ballroom is a large event venue in Mississauga for weddings, galas, conferences, and luxury celebrations at Palacio Event Centre.",
+          "Host exceptional events in a grand ballroom Mississauga trusts. 23‑ft ceilings, divisible layout, and refined elegance for weddings, galas, and conferences.",
       }}
     />
   );

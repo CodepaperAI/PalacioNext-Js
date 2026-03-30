@@ -6,7 +6,6 @@ import {
   EditorialHero,
   SectionHeading,
   SiteCtaSection,
-  StatCard,
 } from "@/components/ui/design-system";
 import { VenueSpace } from "@/data/spaces";
 import { fadeUpVariants } from "@/hooks/useScrollAnimation";
@@ -24,8 +23,6 @@ interface SpacePageTemplateProps {
   };
   heroTitle?: string;
 }
-
-const factIcons = [Users, Layers3, Building2, Sparkles];
 
 const SpacePageTemplate = ({ space, relatedSpaces, seo, heroTitle }: SpacePageTemplateProps) => {
   const location = useLocation();
@@ -61,19 +58,18 @@ const SpacePageTemplate = ({ space, relatedSpaces, seo, heroTitle }: SpacePageTe
           title="At a Glance"
           description="Key space details curated for fast venue review."
         />
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {space.quickFacts.map((fact, index) => {
-            const Icon = factIcons[index % factIcons.length];
-
-            return (
-              <StatCard
-                key={fact.label}
-                icon={<Icon className="w-7 h-7 text-gold" strokeWidth={1.5} />}
-                value={fact.value}
-                label={fact.label}
-              />
-            );
-          })}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {space.quickFacts.map((fact) => (
+            <div key={fact.label} className="card-panel p-5 flex items-center gap-4">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full border border-gold/20 bg-gold/8 flex items-center justify-center">
+                <span className="text-gold text-sm font-semibold font-sans">{fact.label.charAt(0)}</span>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground font-sans mb-0.5">{fact.label}</p>
+                <p className="text-sm font-semibold text-foreground font-sans">{fact.value}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </AnimatedSection>
 

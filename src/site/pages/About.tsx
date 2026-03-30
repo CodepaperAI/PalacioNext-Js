@@ -43,8 +43,8 @@ const About = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="About Palacio Event Centre | Banquet Hall in Mississauga"
-        description="Learn about Palacio Event Centre, a luxury banquet hall and event venue in Mississauga with Ibiza Grand Ballroom and Arriba."
+        title="Event Venue Mississauga | Palacio Event Centre"
+        description="Palacio Event Centre is a premier event venue Mississauga trusts for luxury weddings, corporate functions, and milestone celebrations in one refined destination."
         pathname="/about"
         image={heroBg}
       />
@@ -52,7 +52,7 @@ const About = () => {
 
       <PageHero
         eyebrow="Mississauga&apos;s Premier Luxury Venue"
-        title="About Palacio Event Centre"
+        title="Event Venue Mississauga"
         image={heroBg}
         alt="Palacio Event Centre grand ballroom interior in Mississauga"
         align="center"

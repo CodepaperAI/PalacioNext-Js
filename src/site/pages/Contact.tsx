@@ -27,7 +27,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Contact Palacio Event Centre | Event Venue Mississauga"
+        title="Event Venue Booking Mississauga | Palacio Event Centre"
         description="Contact Palacio Event Centre, a luxury event venue in Mississauga, for weddings, corporate events, and private celebrations."
         pathname="/contact"
         image={heroImg}
@@ -40,7 +40,7 @@ const Contact = () => {
 
       <PageHero
         eyebrow="We'd Love to Hear From You"
-        title="Event Venue in Mississauga - Contact Us"
+        title="Event Venue Booking Mississauga"
         image={heroImg}
         alt="Exterior view of Palacio Event Centre in Mississauga at night"
         align="center"

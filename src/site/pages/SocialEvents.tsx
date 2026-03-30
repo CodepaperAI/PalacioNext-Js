@@ -7,18 +7,18 @@ import { buildServiceSchema } from "@/lib/seo";
 
 const socialData: EventPageData = {
   seo: {
-    title: "Party Venue Mississauga | Palacio Event Centre",
+    title: "Private Party Venue Mississauga | Palacio Event Centre",
     description:
-      "Luxury party venue in Mississauga for milestone celebrations, anniversaries, private events, and social gatherings at Palacio Event Centre.",
+      "Palacio Event Centre is a private party venue Mississauga hosts recommend for milestone birthdays, anniversaries, and celebrations that deserve an extraordinary setting.",
     schema: buildServiceSchema({
-      name: "Party Venue in Mississauga",
+      name: "Private Party Venue Mississauga",
       description:
-        "Luxury party venue in Mississauga for milestone celebrations, anniversaries, private events, and social gatherings at Palacio Event Centre.",
+        "Private party venue Mississauga for milestone celebrations, anniversaries, and social gatherings at Palacio Event Centre.",
       pathname: "/social-events",
       image: socialImg,
     }),
   },
-  title: "Social Events at Palacio",
+  title: "Private Party Venue Mississauga",
   eyebrow: "Celebrate Life's Best Moments",
   heroImage: socialImg,
   heroAlt: "Grand social celebration setup at Palacio Event Centre in Mississauga with statement decor and banquet tables",

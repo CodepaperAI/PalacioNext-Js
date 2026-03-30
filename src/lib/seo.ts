@@ -35,6 +35,19 @@ export const buildLocalBusinessSchema = (description: string, image?: string) =>
     "@type": "PostalAddress",
     ...BUSINESS_ADDRESS,
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 43.5654,
+    longitude: -79.6235,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "10:00",
+      closes: "20:00",
+    },
+  ],
   areaServed: "Mississauga, Ontario",
 });
 

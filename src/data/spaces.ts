@@ -54,10 +54,10 @@ export const venueSpaces: VenueSpace[] = [
     supportingFact:
       "Designed for weddings, receptions, exhibitions, corporate events, conferences, seminars, and product launches",
     quickFacts: [
-      { label: "Banquet Capacity", value: "Up to 900 Guests" },
+      { label: "Capacity", value: "Up to 900 Guests" },
       { label: "Event Scale", value: "Large-Scale" },
-      { label: "Capability", value: "Divisible into Ibiza A / Ibiza B" },
-      { label: "Standout Detail", value: "23-Foot-High Ceilings" },
+      { label: "Capability", value: "Divisible Ballroom" },
+      { label: "Feature", value: "23-Foot Ceilings" },
     ],
     highlights: [
       "Largest and most flexible venue",
@@ -109,10 +109,10 @@ export const venueSpaces: VenueSpace[] = [
     capability: "Part of Ibiza Grand Ballroom",
     supportingFact: "Best suited to medium-to-large events within the divisible ballroom system",
     quickFacts: [
-      { label: "Banquet Capacity", value: "Up to 450 Guests" },
+      { label: "Capacity", value: "Up to 450 Guests" },
       { label: "Event Scale", value: "Medium to Large" },
-      { label: "Capability", value: "Divided Ballroom Configuration" },
-      { label: "Parent Venue", value: "Ibiza Grand Ballroom" },
+      { label: "Capability", value: "Divisible Ballroom" },
+      { label: "Parent", value: "Ibiza Grand Ballroom" },
     ],
     highlights: [
       "Part of Ibiza Grand Ballroom",
@@ -160,10 +160,10 @@ export const venueSpaces: VenueSpace[] = [
     capability: "Part of Ibiza Grand Ballroom",
     supportingFact: "Ideal for mid-size events when Ibiza Grand Ballroom is divided",
     quickFacts: [
-      { label: "Banquet Capacity", value: "Up to 300 Guests" },
+      { label: "Capacity", value: "Up to 300 Guests" },
       { label: "Event Scale", value: "Mid-Size" },
-      { label: "Capability", value: "Divided Ballroom Configuration" },
-      { label: "Parent Venue", value: "Ibiza Grand Ballroom" },
+      { label: "Capability", value: "Divisible Ballroom" },
+      { label: "Parent", value: "Ibiza Grand Ballroom" },
     ],
     highlights: [
       "Part of Ibiza Grand Ballroom",
@@ -212,10 +212,10 @@ export const venueSpaces: VenueSpace[] = [
     supportingFact:
       "Ideal for business meetings, social functions, wedding receptions, and private events",
     quickFacts: [
-      { label: "Banquet Capacity", value: "Up to 140 Guests" },
+      { label: "Capacity", value: "Up to 140 Guests" },
       { label: "Event Scale", value: "Intimate" },
       { label: "Setting", value: "Second Floor" },
-      { label: "Standout Detail", value: "Panoramic Views" },
+      { label: "Feature", value: "Panoramic Views" },
     ],
     highlights: [
       "Separate intimate venue",

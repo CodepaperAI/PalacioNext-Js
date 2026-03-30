@@ -7,18 +7,18 @@ import { buildServiceSchema } from "@/lib/seo";
 
 const corporateData: EventPageData = {
   seo: {
-    title: "Corporate Event Venue Mississauga | Palacio Event Centre",
+    title: "Corporate Event Space Mississauga | Palacio Event Centre",
     description:
-      "Corporate event venue in Mississauga for conferences, galas, meetings, and professional functions at Palacio Event Centre.",
+      "Palacio Event Centre is a corporate event space Mississauga organizations select for conferences, galas, product launches, and executive meetings that demand distinction.",
     schema: buildServiceSchema({
-      name: "Corporate Event Venue in Mississauga",
+      name: "Corporate Event Space Mississauga",
       description:
-        "Corporate event venue in Mississauga for conferences, galas, meetings, and professional functions at Palacio Event Centre.",
+        "Corporate event space Mississauga for conferences, galas, meetings, and professional functions at Palacio Event Centre.",
       pathname: "/corporate-events",
       image: corporateImg,
     }),
   },
-  title: "Corporate Event Venue in Mississauga",
+  title: "Corporate Event Space Mississauga",
   eyebrow: "Professional. Prestigious. Polished.",
   heroImage: corporateImg,
   heroAlt: "Corporate gala setup at Palacio Event Centre in Mississauga with stage screens and banquet tables",

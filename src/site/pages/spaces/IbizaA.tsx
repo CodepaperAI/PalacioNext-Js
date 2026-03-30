@@ -19,11 +19,11 @@ const IbizaA = () => {
     <SpacePageTemplate
       space={space}
       relatedSpaces={relatedSpaces}
-      heroTitle="Ibiza A Ballroom Configuration in Mississauga"
+      heroTitle="Your Private Event Space in Mississauga's Most Refined Venue"
       seo={{
-        title: "Ibiza A | Ballroom Configuration in Mississauga",
+        title: "Private Event Space Mississauga | Ibiza A at Palacio",
         description:
-          "Ibiza A is a flexible ballroom configuration within Palacio's flagship event venue in Mississauga for medium-to-large celebrations and corporate functions.",
+          "Ibiza A is a private event space Mississauga businesses and families trust for polished celebrations, corporate gatherings, and intimate receptions up to 450 guests.",
       }}
     />
   );

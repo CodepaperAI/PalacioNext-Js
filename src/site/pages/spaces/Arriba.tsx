@@ -17,11 +17,11 @@ const Arriba = () => {
     <SpacePageTemplate
       space={space}
       relatedSpaces={relatedSpaces}
-      heroTitle="Small Event Venue in Mississauga"
+      heroTitle="A Luxury Event Space Mississauga Offers for Intimate Occasions"
       seo={{
-        title: "Small Event Venue Mississauga | Arriba at Palacio",
+        title: "Luxury Event Space Mississauga | Arriba at Palacio",
         description:
-          "Arriba is a small event venue in Mississauga for intimate celebrations, business meetings, and private events at Palacio Event Centre.",
+          "Arriba is a luxury event space Mississauga families and businesses choose for intimate celebrations, executive meetings, and private events with panoramic views.",
       }}
     />
   );
