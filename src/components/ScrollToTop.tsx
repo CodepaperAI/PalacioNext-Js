@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "@/lib/router";
 
 /** Scrolls to top on route change, or to hash element if present */
 const ScrollToTop = () => {

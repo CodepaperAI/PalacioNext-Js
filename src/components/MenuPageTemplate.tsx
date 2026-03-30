@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "@/lib/router";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -78,6 +78,7 @@ const MenuPageTemplate = ({ data }: { data: MenuPageData }) => {
         image={data.heroImage}
         alt={data.heroAlt}
         align="center"
+        showCta={true}
       />
 
       <AnimatedSection bg="background" topDivider>

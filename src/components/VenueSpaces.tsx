@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router";
 import { fadeUpVariants } from "@/hooks/useScrollAnimation";
 import { AnimatedSection, SectionHeading } from "@/components/ui/design-system";
 import { venueSpaces } from "@/data/spaces";
@@ -16,6 +16,7 @@ const VenueSpaces = () => {
         eyebrow="Our Spaces"
         title="One Flagship Ballroom, Supported by Focused Configurations"
         description="Discover Ibiza Grand Ballroom as the primary venue, with divisible ballroom configurations and Arriba as the intimate second-floor option."
+        light
       />
 
       {primarySpace && (

@@ -1,92 +1,36 @@
-# Palacio Event Centre Website
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Live Inquiry Form Setup
+## Getting Started
 
-The inquiry form now submits to an internal endpoint:
-
-`/api/inquiry`
-
-The frontend can use:
-
-`VITE_CONTACT_FORM_ENDPOINT=/api/inquiry`
-
-If you do not set it locally, the frontend defaults to `/api/inquiry`.
-
-### Server-side env vars required
-
-Add these values locally in `.env.local` and in your hosting platform environment settings:
+First, run the development server:
 
 ```bash
-VITE_CONTACT_FORM_ENDPOINT=/api/inquiry
-RESEND_API_KEY=re_your_resend_api_key
-INQUIRY_FROM_EMAIL=Palacio Event Centre <inquiries@your-verified-domain.com>
-INQUIRY_TO_EMAIL=sales@palacioeventcentre.com
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-### What each env var does
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- `VITE_CONTACT_FORM_ENDPOINT`
-  - The internal frontend submission target.
-  - Keep this as `/api/inquiry` unless you intentionally proxy it elsewhere.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- `RESEND_API_KEY`
-  - Your private Resend API key.
-  - This must stay server-side only and must never be exposed in client code.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- `INQUIRY_FROM_EMAIL`
-  - The verified sender identity used by Resend.
-  - This should be an email at a domain you have verified in Resend.
+## Learn More
 
-- `INQUIRY_TO_EMAIL`
-  - The final Palacio inbox that should receive inquiries.
+To learn more about Next.js, take a look at the following resources:
 
-## Deployment approach
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-This project uses a simple serverless route at:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-`api/inquiry.ts`
+## Deploy on Vercel
 
-That is the simplest production-ready pattern for this repo because:
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- it keeps the current Vite frontend unchanged
-- the API key stays server-side
-- the same `/api/inquiry` contract can be used by both homepage and contact page forms
-- local development can use the same endpoint path through the Vite dev middleware
-
-## What the inquiry email contains
-
-Each inquiry email includes:
-
-- name
-- email
-- phone
-- event type
-- guest count
-- event date
-- message
-- source (`homepage` or `contact-page`)
-
-The handler validates the payload server-side with the same schema used by the frontend before sending to Resend.
-
-## Manual setup left for you
-
-1. Create `.env.local` in the project root.
-2. Add the four env vars shown above.
-3. In Resend:
-   - add your domain
-   - verify the domain
-   - use a verified sender email for `INQUIRY_FROM_EMAIL`
-4. Set `INQUIRY_TO_EMAIL` to the Palacio inbox you want to receive inquiries.
-5. Add the same env vars in your hosting platform settings.
-
-## End-to-end test
-
-1. Add real values to `.env.local`.
-2. Restart the dev server.
-3. Open either the homepage inquiry form or `/contact`.
-4. Submit a test inquiry.
-5. Confirm:
-   - the button shows `Sending...`
-   - the success message appears
-   - the API responds successfully at `/api/inquiry`
-   - the email arrives in the `INQUIRY_TO_EMAIL` inbox
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

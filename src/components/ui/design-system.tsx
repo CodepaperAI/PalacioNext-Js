@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router";
 import { cn } from "@/lib/utils";
 import { useScrollAnimation, fadeUpVariants, staggerContainer } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
@@ -360,6 +360,7 @@ interface MediaHeroProps {
   contentClassName?: string;
   titleClassName?: string;
   descriptionClassName?: string;
+  showCta?: boolean;
   children?: React.ReactNode;
 }
 
@@ -374,6 +375,7 @@ export const MediaHero = ({
   contentClassName,
   titleClassName,
   descriptionClassName,
+  showCta,
   children,
 }: MediaHeroProps) => {
   const sectionClassName = {
@@ -468,6 +470,15 @@ export const MediaHero = ({
                 {description}
               </p>
             )}
+            {showCta && (
+              <div className="mt-6">
+                <Link to="/contact">
+                  <Button variant="gold" size="xl">
+                    Request a Quote
+                  </Button>
+                </Link>
+              </div>
+            )}
             {children}
           </motion.div>
         </div>
@@ -488,6 +499,7 @@ interface PageHeroProps {
   contentClassName?: string;
   titleClassName?: string;
   descriptionClassName?: string;
+  showCta?: boolean;
   children?: React.ReactNode;
 }
 
@@ -520,6 +532,7 @@ interface EditorialHeroProps {
   description?: string;
   image: string;
   alt: string;
+  showCta?: boolean;
   children?: React.ReactNode;
 }
 
@@ -529,6 +542,7 @@ export const EditorialHero = ({
   description,
   image,
   alt,
+  showCta,
   children,
 }: EditorialHeroProps) => (
   <PageHero
@@ -539,6 +553,7 @@ export const EditorialHero = ({
     alt={alt}
     align="left"
     variant="editorial"
+    showCta={showCta}
   >
     {children}
   </PageHero>

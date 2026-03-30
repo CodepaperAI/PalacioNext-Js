@@ -12,7 +12,7 @@ import { VenueSpace } from "@/data/spaces";
 import { fadeUpVariants } from "@/hooks/useScrollAnimation";
 import { Building2, Layers3, MoveRight, Sparkles, Users } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "@/lib/router";
 import { buildServiceSchema } from "@/lib/seo";
 
 interface SpacePageTemplateProps {
@@ -52,6 +52,7 @@ const SpacePageTemplate = ({ space, relatedSpaces, seo, heroTitle }: SpacePageTe
         description={space.description}
         image={space.image}
         alt={space.alt}
+        showCta={true}
       />
 
       <AnimatedSection bg="background" topDivider>

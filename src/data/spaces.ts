@@ -1,9 +1,9 @@
-import ibizaAGrandConfigImg from "@/assets/Website Content/20221027_150416_Original.jpg";
-import ibizaGrandBallroomLeadImg from "@/assets/Website Content/IMG_3666.jpg";
-import arribaLeadImg from "@/assets/Website Content/Palacio-20.jpg";
-import weddingStageImg from "@/assets/Website Content/IMG_1955.jpg";
-import floralDetailImg from "@/assets/Website Content/IMG_2245.jpg";
-import corporateSetupImg from "@/assets/Website Content/IMG_3306.jpg";
+const ibizaAGrandConfigImg = "/site-assets/Website Content/20221027_150416_Original.jpg";
+const ibizaGrandBallroomLeadImg = "/site-assets/Website Content/IMG_3666.jpg";
+const arribaLeadImg = "/site-assets/Website Content/Palacio-20.jpg";
+const weddingStageImg = "/site-assets/Website Content/IMG_1955.jpg";
+const floralDetailImg = "/site-assets/Website Content/IMG_2245.jpg";
+const corporateSetupImg = "/site-assets/Website Content/IMG_3306.jpg";
 
 export interface SpaceQuickFact {
   label: string;

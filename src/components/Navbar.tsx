@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "@/lib/router";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/palacio-logo.png";
+const logo = "/site-assets/palacio-logo.png";
 import { cuisineMenuCollections, serviceMenuCollections } from "@/data/menuCollections";
 
 const phoneNumber = "905-949-0555";
@@ -47,7 +47,7 @@ const serviceGroups = [
 const navLinks = [
   { label: "Spaces", href: "/#spaces", children: spacesLinks },
   { label: "Events", href: "/weddings", children: eventLinks },
-  { label: "Menu", href: "/menus", hasMegaMenu: true },
+  { label: "Menu", href: "/menus/SOUTH-ASIAN-MENU-1.pdf", hasMegaMenu: true },
   { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
@@ -251,12 +251,14 @@ const Navbar = ({ solid = false }: NavbarProps) => {
                           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold font-sans">
                             Menu
                           </p>
-                          <Link
-                            to="/menus"
+                          <a
+                            href="/menus/SOUTH-ASIAN-MENU-1.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-gold font-sans"
                           >
                             View All
-                          </Link>
+                          </a>
                         </div>
                         <div className="grid grid-cols-2 gap-8">
                           {serviceGroups.map((group) => (
@@ -266,20 +268,35 @@ const Navbar = ({ solid = false }: NavbarProps) => {
                               </p>
                               <div className="space-y-1">
                                 {group.items.map((item) => (
-                                  <a
-                                    key={item.label}
-                                    href={item.pdfUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center justify-between rounded-xl px-3 py-2.5 transition-all duration-200 hover:bg-gold/5"
-                                  >
-                                    <span className="text-sm text-foreground/72 transition-colors duration-200 hover:text-gold font-sans">
-                                      {item.label}
-                                    </span>
-                                    <span className="rounded-full border border-border/50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200 hover:border-gold/35 hover:text-gold font-sans">
-                                      PDF
-                                    </span>
-                                  </a>
+                                  item.pdfUrl ? (
+                                    <a
+                                      key={item.label}
+                                      href={item.pdfUrl}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center justify-between rounded-xl px-3 py-2.5 transition-all duration-200 hover:bg-gold/5"
+                                    >
+                                      <span className="text-sm text-foreground/72 transition-colors duration-200 hover:text-gold font-sans">
+                                        {item.label}
+                                      </span>
+                                      <span className="rounded-full border border-border/50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200 hover:border-gold/35 hover:text-gold font-sans">
+                                        View
+                                      </span>
+                                    </a>
+                                  ) : (
+                                    <Link
+                                      key={item.label}
+                                      to={item.href}
+                                      className="flex items-center justify-between rounded-xl px-3 py-2.5 transition-all duration-200 hover:bg-gold/5"
+                                    >
+                                      <span className="text-sm text-foreground/72 transition-colors duration-200 hover:text-gold font-sans">
+                                        {item.label}
+                                      </span>
+                                      <span className="rounded-full border border-border/50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200 hover:border-gold/35 hover:text-gold font-sans">
+                                        View
+                                      </span>
+                                    </Link>
+                                  )
                                 ))}
                               </div>
                             </div>
@@ -352,7 +369,7 @@ const Navbar = ({ solid = false }: NavbarProps) => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="xl:hidden overflow-hidden border-t border-border/30 bg-background/98 backdrop-blur-2xl"
+            className="xl:hidden overflow-hidden border-t border-border/30 bg-white shadow-soft"
           >
             <div className="container-luxury space-y-1 py-6">
               {navLinks.map((link) => (
@@ -403,29 +420,44 @@ const Navbar = ({ solid = false }: NavbarProps) => {
                             className="overflow-hidden"
                           >
                             <div className="space-y-1 pb-2 pl-4">
-                              <Link
-                                to="/menus"
+                              <a
+                                href="/menus/SOUTH-ASIAN-MENU-1.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="block rounded-xl px-3 py-2 text-[11px] font-medium uppercase tracking-wider text-gold"
                               >
-                                View All
-                              </Link>
+                                View All Menus
+                              </a>
                               {serviceGroups.flatMap((group) => group.items).map((item) => (
-                                <a
-                                  key={item.label}
-                                  href={item.pdfUrl}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex items-center justify-between rounded-xl px-3 py-2.5"
-                                >
-                                  <span className="text-sm text-foreground/60 transition-colors hover:text-gold font-sans">
-                                    {item.label}
-                                  </span>
-                                  {item.pdfUrl && (
-                                    <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-gold font-sans">
-                                      PDF
+                                item.pdfUrl ? (
+                                  <a
+                                    key={item.label}
+                                    href={item.pdfUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-between rounded-xl px-3 py-2.5"
+                                  >
+                                    <span className="text-sm text-foreground/60 transition-colors hover:text-gold font-sans">
+                                      {item.label}
                                     </span>
-                                  )}
-                                </a>
+                                    <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-gold font-sans">
+                                      View
+                                    </span>
+                                  </a>
+                                ) : (
+                                  <Link
+                                    key={item.label}
+                                    to={item.href}
+                                    className="flex items-center justify-between rounded-xl px-3 py-2.5"
+                                  >
+                                    <span className="text-sm text-foreground/60 transition-colors hover:text-gold font-sans">
+                                      {item.label}
+                                    </span>
+                                    <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-gold font-sans">
+                                      View
+                                    </span>
+                                  </Link>
+                                )
                               ))}
                             </div>
                           </motion.div>

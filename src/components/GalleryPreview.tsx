@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeUpVariants } from "@/hooks/useScrollAnimation";
 import { AnimatedSection, SectionHeading, GalleryImage } from "@/components/ui/design-system";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router";
 import { featuredGalleryImages } from "@/data/gallery";
 
 const GalleryPreview = () => {

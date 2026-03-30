@@ -18,7 +18,7 @@ export const normalizeWordPressContent = (html: string) => {
     container.querySelectorAll("[style]").forEach((node) => node.removeAttribute("style"));
 
     // Also strip any inline color attributes directly from the HTML string as a safety net
-    let cleaned = container.innerHTML
+    const cleaned = container.innerHTML
       .replace(/\bstyle="[^"]*"/gi, "")
       .replace(/\u00a0/g, " ")
       .replace(/<p>\s*<\/p>/g, "")

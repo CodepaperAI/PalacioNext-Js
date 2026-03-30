@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router";
 import { Mail, MapPin, Phone } from "lucide-react";
-import logo from "@/assets/palacio-logo.png";
+const logo = "/site-assets/palacio-logo.png";
 import { menuCollections } from "@/data/menuCollections";
 
 const quickLinks = [

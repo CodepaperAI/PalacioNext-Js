@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router";
 import { Instagram, Facebook, Mail } from "lucide-react";
-import heroPoster from "@/assets/Website Content/IMG_3666.jpg";
-import weddingsHero from "@/assets/Website Content/IMG_1955.jpg";
-import foyerHero from "@/assets/Website Content/IMG_3670.jpg";
-import ibizaHero from "@/assets/Website Content/20221027_150416_Original.jpg";
-import ballroomHero from "@/assets/Website Content/IMG_3306.jpg";
-import wallDetailHero from "@/assets/Website Content/Palacio-15.jpg";
+const heroPoster = "/site-assets/Website Content/IMG_3666.jpg";
+const weddingsHero = "/site-assets/Website Content/IMG_1955.jpg";
+const foyerHero = "/site-assets/Website Content/IMG_3670.jpg";
+const ibizaHero = "/site-assets/Website Content/20221027_150416_Original.jpg";
+const ballroomHero = "/site-assets/Website Content/IMG_3306.jpg";
+const wallDetailHero = "/site-assets/Website Content/Palacio-15.jpg";
 import { MediaHero } from "@/components/ui/design-system";
 
 const phoneNumber = "905-949-0555";
@@ -61,7 +61,11 @@ const heroMedia: HeroMediaItem[] = [
 ];
 
 const usePrefersReducedMotion = () => {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false,
+  );
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -69,7 +73,6 @@ const usePrefersReducedMotion = () => {
       setPrefersReducedMotion(event.matches);
     };
 
-    setPrefersReducedMotion(mediaQuery.matches);
     mediaQuery.addEventListener("change", handleChange);
 
     return () => mediaQuery.removeEventListener("change", handleChange);
@@ -81,10 +84,6 @@ const usePrefersReducedMotion = () => {
 const HeroMediaRotator = ({ scrollY }: { scrollY: number }) => {
   const prefersReducedMotion = usePrefersReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    setActiveIndex(0);
-  }, [prefersReducedMotion]);
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -158,6 +157,9 @@ const HeroSection = () => {
       variant="home"
       align="left"
       media={<HeroMediaRotator scrollY={scrollY} />}
+      eyebrow="Luxury Event Venue"
+      title="Palacio Event Centre"
+      description="Grand ballrooms, refined service, and flexible layouts for weddings, corporate events, and milestone celebrations in Mississauga."
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}

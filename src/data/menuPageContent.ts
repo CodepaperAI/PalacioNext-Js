@@ -1,4 +1,4 @@
-import heroImg from "@/assets/Website Content/20221027_150416_Original.jpg";
+const heroImg = "/site-assets/Website Content/20221027_150416_Original.jpg";
 import type { MenuPageData } from "@/components/MenuPageTemplate";
 
 type MenuPageContentMap = Record<string, MenuPageData>;

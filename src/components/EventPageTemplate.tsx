@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "@/lib/router";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -13,8 +13,8 @@ import {
   SectionHeading,
   SiteCtaSection,
 } from "@/components/ui/design-system";
-import arribaImg from "@/assets/Website Content/Palacio-20.jpg";
-import ibizaImg from "@/assets/Website Content/IMG_3666.jpg";
+const arribaImg = "/site-assets/Website Content/Palacio-20.jpg";
+const ibizaImg = "/site-assets/Website Content/IMG_3666.jpg";
 
 export interface EventPageData {
   seo: {
@@ -91,6 +91,7 @@ const EventPageTemplate = ({ data }: { data: EventPageData }) => {
         image={data.heroImage}
         alt={data.heroAlt}
         align="center"
+        showCta={true}
       />
 
       <AnimatedSection bg="background" topDivider>

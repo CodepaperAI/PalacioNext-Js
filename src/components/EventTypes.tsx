@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { fadeUpVariants } from "@/hooks/useScrollAnimation";
 import { AnimatedSection, SectionHeading, LuxuryCard, ImageCard } from "@/components/ui/design-system";
-import { Link } from "react-router-dom";
-import weddingCardImg from "@/assets/Website Content/IMG_1955.jpg";
-import socialCardImg from "@/assets/Website Content/IMG_3666.jpg";
-import corporateCardImg from "@/assets/Website Content/IMG_3306.jpg";
+import { Link } from "@/lib/router";
+const weddingCardImg = "/site-assets/Website Content/IMG_1955.jpg";
+const socialCardImg = "/site-assets/Website Content/IMG_3666.jpg";
+const corporateCardImg = "/site-assets/Website Content/IMG_3306.jpg";
 
 const events = [
   {

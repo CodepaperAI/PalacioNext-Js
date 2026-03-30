@@ -11,8 +11,7 @@ export interface SubmitInquiryResult {
   mode: "endpoint";
 }
 
-export const CONTACT_FORM_ENDPOINT =
-  import.meta.env.VITE_CONTACT_FORM_ENDPOINT?.trim() || "/api/inquiry";
+export const CONTACT_FORM_ENDPOINT = "/api/inquiry";
 
 export const submitInquiry = async (input: InquiryFormData): Promise<SubmitInquiryResult> => {
   console.log("[CONTACT] submitInquiry called with:", input);
