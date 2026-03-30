@@ -85,10 +85,7 @@ const InquiryForm = ({
 
     const parsed = inquiryFormSchema.safeParse(sanitizeInquiryFormInput(formData));
 
-    console.log("[INQUIRY_FORM] Form parsed:", { success: parsed.success, data: parsed.data });
-
     if (!parsed.success) {
-      console.log("[INQUIRY_FORM] Validation failed:", parsed.error);
       setFieldErrors(getInquiryFormErrors(parsed.error));
       return;
     }
@@ -97,14 +94,11 @@ const InquiryForm = ({
     setIsSubmitting(true);
 
     try {
-      console.log("[INQUIRY_FORM] Calling submitInquiry...");
       await submitInquiry(parsed.data);
-      console.log("[INQUIRY_FORM] submitInquiry completed successfully");
 
       setSubmitSuccess("Your inquiry has been sent. Our team will get back to you shortly.");
       setFormData(initialFormState(source));
     } catch (error) {
-      console.error("[INQUIRY_FORM] submitInquiry failed:", error);
       setSubmitError(
         error instanceof Error
           ? error.message

@@ -46,8 +46,6 @@ const BlogPost = () => {
 
   // Use API post if found, otherwise fall back to local blogPosts
   const post = apiPost ?? resolvedBlogPosts.find((item) => item.slug === resolvedSlug);
-  console.log("[BlogPost] apiPost:", apiPost, "resolved post:", post, "slug:", resolvedSlug);
-
   if (!post) {
     return <NotFound />;
   }
@@ -55,8 +53,6 @@ const BlogPost = () => {
   // For related posts, only use local blogPosts (avoid mixing API and local)
   const relatedPosts = getRelatedBlogPosts(post);
   const renderedContent = normalizeWordPressContent(post.contentHtml) || post.contentHtml;
-  console.log("[BlogPost] post.contentHtml:", post.contentHtml);
-  console.log("[BlogPost] renderedContent:", renderedContent);
   const postLabel = post.category ?? "Blog";
 
   return (

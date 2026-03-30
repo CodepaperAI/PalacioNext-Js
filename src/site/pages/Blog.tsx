@@ -28,7 +28,6 @@ const heroImg = "/site-assets/Website Content/IMG_3670.jpg";
 
 const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => {
   const postLabel = post.category ?? "Article";
-  console.log("[BlogCard] Rendering post:", { id: post.id, title: post.title, image: post.image, imageAlt: post.imageAlt });
 
   return (
     <motion.article
@@ -101,7 +100,6 @@ const Blog = () => {
     queryKey: ["blog-posts"],
     queryFn: fetchBlogPosts,
   });
-  console.log("[Blog] useQuery data:", apiPosts, "isArray:", Array.isArray(apiPosts));
 
   // Combine: new API posts first, then existing static posts, sorted newest first
   // Then reassign images by final sorted position to guarantee no duplicate adjacent images
@@ -109,21 +107,16 @@ const Blog = () => {
     const combined = [...apiPosts, ...staticBlogPosts].sort(
       (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
     );
-    const withImages = combined.map((post, index) => ({
+    return combined.map((post, index) => ({
       ...post,
       image: post.image || VENUE_IMAGES[index % VENUE_IMAGES.length],
     }));
-    console.log("[Blog] API posts:", apiPosts.length, "Static posts:", staticBlogPosts.length, "Combined:", combined.length);
-    console.log("[Blog] All posts with images:", withImages);
-    return withImages;
   }, [apiPosts]);
 
   const totalPages = Math.max(1, Math.ceil(allPosts.length / postsPerPage));
   const paginatedPosts = useMemo(() => {
     const startIndex = (currentPage - 1) * postsPerPage;
-    const sliced = allPosts.slice(startIndex, startIndex + postsPerPage);
-    console.log("[Blog] paginatedPosts slice:", { startIndex, endIndex: startIndex + postsPerPage, slicedLength: sliced.length, total: allPosts.length });
-    return sliced;
+    return allPosts.slice(startIndex, startIndex + postsPerPage);
   }, [currentPage, allPosts]);
 
   useEffect(() => {

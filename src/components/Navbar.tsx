@@ -22,7 +22,18 @@ const eventLinks = [
   { label: "Corporate Events", href: "/corporate-events" },
 ];
 
-const serviceGroups = [
+interface ServiceGroupItem {
+  label: string;
+  href: string;
+  pdfUrl?: string;
+}
+
+interface ServiceGroup {
+  group: string;
+  items: ServiceGroupItem[];
+}
+
+const serviceGroups: ServiceGroup[] = [
   {
     group: "Cuisine Menus",
     items: cuisineMenuCollections.map((item) => ({
@@ -47,7 +58,7 @@ const serviceGroups = [
 const navLinks = [
   { label: "Spaces", href: "/#spaces", children: spacesLinks },
   { label: "Events", href: "/weddings", children: eventLinks },
-  { label: "Menu", href: "/menus/SOUTH-ASIAN-MENU-1.pdf", hasMegaMenu: true },
+  { label: "Menu", href: "/menus", hasMegaMenu: true },
   { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
@@ -251,14 +262,12 @@ const Navbar = ({ solid = false }: NavbarProps) => {
                           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold font-sans">
                             Menu
                           </p>
-                          <a
-                            href="/menus/SOUTH-ASIAN-MENU-1.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <Link
+                            to="/menus"
                             className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-gold font-sans"
                           >
                             View All
-                          </a>
+                          </Link>
                         </div>
                         <div className="grid grid-cols-2 gap-8">
                           {serviceGroups.map((group) => (
@@ -420,14 +429,12 @@ const Navbar = ({ solid = false }: NavbarProps) => {
                             className="overflow-hidden"
                           >
                             <div className="space-y-1 pb-2 pl-4">
-                              <a
-                                href="/menus/SOUTH-ASIAN-MENU-1.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                              <Link
+                                to="/menus"
                                 className="block rounded-xl px-3 py-2 text-[11px] font-medium uppercase tracking-wider text-gold"
                               >
                                 View All Menus
-                              </a>
+                              </Link>
                               {serviceGroups.flatMap((group) => group.items).map((item) => (
                                 item.pdfUrl ? (
                                   <a
